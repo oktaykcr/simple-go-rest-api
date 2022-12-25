@@ -1,0 +1,9 @@
+# Server configurations
+server:
+  host: "localhost"
+  port: 3000
+
+# Database credentials
+database:
+  user: "root"
+  pass: "password"

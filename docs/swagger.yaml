@@ -1,0 +1,115 @@
+definitions:
+  app.createUserRequest:
+    properties:
+      age:
+        type: integer
+      name:
+        type: string
+    type: object
+  app.updateUserRequest:
+    properties:
+      age:
+        type: integer
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+host: localhost:3000
+info:
+  contact:
+    email: oktaykocer@outlook.com
+    name: oktaykcr
+  description: Example RestFul project for golang
+  title: Simple Go Rest API
+  version: "1.0"
+paths:
+  /api/v1/user:
+    get:
+      consumes:
+      - application/json
+      description: List all users.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ""
+      summary: Get All users.
+      tags:
+      - User
+    post:
+      consumes:
+      - application/json
+      description: create user by name and age.
+      parameters:
+      - description: GetContentsByListingIdsRequest
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/app.createUserRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ""
+      summary: Create a new user.
+      tags:
+      - User
+    put:
+      consumes:
+      - application/json
+      description: update name and age of user.
+      parameters:
+      - description: GetContentsByListingIdsRequest
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/app.updateUserRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ""
+      summary: Update a new user.
+      tags:
+      - User
+  /api/v1/user/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete user according to given id.
+      parameters:
+      - description: UserId
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ""
+      summary: Delete a user.
+      tags:
+      - User
+    get:
+      consumes:
+      - application/json
+      description: Get user according to given id.
+      parameters:
+      - description: UserId
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ""
+      summary: Get user.
+      tags:
+      - User
+swagger: "2.0"
